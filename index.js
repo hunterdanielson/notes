@@ -1,16 +1,10 @@
-var minimist = require('minimist');
-const { parse } = require('./lib/input.js');
+const { parse, valid } = require('./lib/input.js');
+const { execute } = require('./lib/notes.js');
+
+let stuff = parse(process.argv);
+if(valid(stuff)) {
+  execute(stuff);
+}
 
 
-// var args = minimist(process.argv.slice(2), {
-//   string: 'lang',           // --lang xml
-//   boolean: ['version'],     // --version
-//   alias: { v: 'version' }
-// })
-
-const minObject = minimist(process.argv);
-
-
-console.log(parse(minObject));
-// console.log(valid(minObject))
-
+console.log(stuff);
