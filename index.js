@@ -1,12 +1,8 @@
 const { parse, valid } = require('./lib/input.js');
 const { execute } = require('./lib/notes.js');
 
-let stuff = parse(process.argv);
-let response;
+const noteObject = parse(process.argv);
 
-if(valid(stuff)) {
-  response = execute(stuff);
-}
+if(valid(noteObject)) console.log(execute(noteObject));
 
-console.log(response);
-console.log(stuff);
+console.log(noteObject);
