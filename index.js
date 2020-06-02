@@ -1,8 +1,10 @@
-const { parse, valid } = require('./lib/Input.js');
-const { execute } = require('./lib/Notes.js');
+const { Input } = require('./lib/Input.js');
+const { Note } = require('./lib/Note.js');
 
-const noteObject = parse(process.argv);
 
-if(valid(noteObject)) console.log(execute(noteObject));
+const noteObject = new Input;
+const noteObjectParse = noteObject.parse(process.argv);
 
-console.log(noteObject);
+if(Input.valid(noteObjectParse)) console.log('my note', Note.execute(noteObjectParse));
+
+console.log(noteObjectParse);
