@@ -1,5 +1,5 @@
-const { parse, valid } = require('./lib/input.js');
-const { execute } = require('./lib/notes.js');
+const { parse, valid } = require('./lib/Input.js');
+const { execute } = require('./lib/Notes.js');
 
 const noteObject = parse(process.argv);
 
