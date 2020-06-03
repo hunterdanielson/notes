@@ -12,36 +12,35 @@ mongoose.connect('mongodb://localhost:27017/play', {
 
 app.use(express.json());
 
+// make a note
 app.post('/notes', (req, res) => {
   Note
     .execute(req.body)
     .then(note => res.send(note));
 });
   
+// get all notes
 app.get('/notes', (req, res) => {
   Note
     .find()
     .then(notes => res.send(notes));
 });
   
+// get a specific note
 app.get('/notes/:id', (req, res) => {
   Note
     .findById(req.params.id)
     .then(note => res.send(note));
 });
-  
-app.patch('/notes/:id', (req, res) => {
-  Note
-    .findByIdAndUpdate(req.params.id, req.body, { new: true })
-    .then(note => res.send(note));
-});
-  
+ 
+// delete a note by id
 app.delete('/notes/:id', (req, res) => {
   Note
     .findByIdAndDelete(req.params.id)
     .then(note => res.send(note));
 });
   
-app.listen(7890, () => {
-  console.log('Started on 7890');
+// port 3000 best port
+app.listen(3000, () => {
+  console.log('Started on 3000');
 });
